@@ -1,0 +1,44 @@
+{
+  "name": "sully-take-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "source .env && ts-node-dev backend/index.ts",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run start\" \"npm run start:frontend\"",
+    "db:create": "createdb -h localhost -U osayame sully-onsite",
+    "db:migrate": "psql -h localhost -U osayame -d sully-onsite -f backend/db/migrations/init_db.sql",
+    "db:drop": "dropdb -h localhost -U osayame sully-onsite",
+    "db:list-databases": "psql -h localhost -U osayame -d postgres -c '\\l'",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/pg": "^8.11.4",
+    "@types/supertest": "^6.0.2",
+    "concurrently": "^8.2.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@deepgram/sdk": "^3.7.0",
+    "@google-cloud/translate": "^8.5.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.5"
+  }
+}
