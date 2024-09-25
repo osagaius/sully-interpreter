@@ -10,7 +10,9 @@ export const connectPgClient = () => {
 
     dbPool = new pg.Pool({
         connectionString: DATABASE_URL,
-        ssl: true
+        ssl: {
+            rejectUnauthorized: false,
+        },
     });
 
     return dbPool;
