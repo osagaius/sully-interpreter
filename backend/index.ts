@@ -10,7 +10,7 @@ if (!process.env.DATABASE_URL) {
 
 connectPgClient();
 
-const port = API_PORT ?? 3000;
+const port = process.env.PORT || API_PORT || 3000;
 app.listen(port, () => {
   console.log(`App started on http://localhost:${port}`);
 });
