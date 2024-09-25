@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "source .env && ts-node-dev backend/index.ts",
+    "start": "ts-node-dev backend/index.ts",
     "start:frontend": "cd frontend && npm run dev",
     "dev": "concurrently \"npm run start\" \"npm run start:frontend\"",
     "db:create": "createdb -h localhost -U osayame sully-onsite",
