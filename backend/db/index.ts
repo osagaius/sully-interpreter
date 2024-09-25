@@ -10,8 +10,9 @@ export const connectPgClient = () => {
 
     dbPool = new pg.Pool({
         connectionString: DATABASE_URL,
+        ssl: true
     });
-    
+
     return dbPool;
 };
 
